@@ -1,0 +1,40 @@
+﻿@page "/Dashboard"
+
+<header class="flex-row-center header">
+    <div class="logo">
+        <img src="Assets/logo.png" alt="">
+        <div>
+            <span class="emp-text">EMPLOYEE</span><br>
+            <span class="emp-text emp-payroll">PAYROLL</span>
+        </div>
+    </div>
+</header>
+<div class="flex-column content">
+    <div class="emp-detail">
+        <div class="detail-text">
+            Employee Details <div class="count">10</div>
+        </div>
+        <a href="/EmpRegister" class="add-button flex-row-center">
+            <img src="/Asets/icons/add-24px.svg" alt="">
+            Add User
+        </a>
+    </div>
+    <div class="table-main">
+        <table id="display" class="table">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>start Date</th>
+                    <th>Actions</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+
+}
