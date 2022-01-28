@@ -75,6 +75,27 @@ using BlazorEmployee.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\prabhakar\source\repos\BlazorEmployee\BlazorEmployee\Pages\EmpRegister.razor"
+using DataLayer.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\prabhakar\source\repos\BlazorEmployee\BlazorEmployee\Pages\EmpRegister.razor"
+using DataLayer.Interface;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\prabhakar\source\repos\BlazorEmployee\BlazorEmployee\Pages\EmpRegister.razor"
+using MatBlazor;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/EmpRegister")]
     public partial class EmpRegister : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -83,6 +104,48 @@ using BlazorEmployee.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 133 "C:\Users\prabhakar\source\repos\BlazorEmployee\BlazorEmployee\Pages\EmpRegister.razor"
+       
+
+    bool snackBarIsOpen = false; //submit
+    bool snackBar2IsOpen = false; //cancel
+    bool snackBar3IsOpen = false;  //reset
+
+ 
+
+    EmployeeModel emp = new EmployeeModel();
+    protected void AddEmp()
+    {
+        services.Create(emp);
+        snackBarIsOpen = true;
+        this.StateHasChanged();
+        //   navigate.NavigateTo("/Dashboard");
+    }
+    protected void AddImg(string img)
+    {
+        emp.ProfileImage = img;
+
+    }
+
+    protected void Reset()
+    {
+        snackBar3IsOpen = true;
+        this.StateHasChanged();
+       // navigate.NavigateTo("/EmpRegister");
+    }
+    protected void Home()
+    {
+        snackBar2IsOpen = true;
+        this.StateHasChanged();
+        //navigate.NavigateTo("/Dashboard");
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigate { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IEmployee services { get; set; }
     }
 }
 #pragma warning restore 1591

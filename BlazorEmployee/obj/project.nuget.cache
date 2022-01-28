@@ -1,10 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "MRhBiM7/ZdpGXWaj2rKa/4rOBvXQEbT36EieMOQVsh93fH3ij5UbXza+3dKmaoLHUTTynugUM7Tn1gN0g2+fkQ==",
+  "dgSpecHash": "VueQ2lmHwvUauD53XIEegyC0BJqnbdQ5dZhcvimlOG6CwoPYm3Qcby1RVkBMvqr4kikMvpzawQi9NrdOgWb8wA==",
   "success": true,
   "projectFilePath": "C:\\Users\\prabhakar\\source\\repos\\BlazorEmployee\\BlazorEmployee\\BlazorEmployee.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\prabhakar\\.nuget\\packages\\blazorise.snackbar\\0.9.5.4\\blazorise.snackbar.0.9.5.4.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\matblazor\\2.8.0\\matblazor.2.8.0.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.10\\microsoft.aspnetcore.authorization.3.1.10.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.10\\microsoft.aspnetcore.components.3.1.10.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.10\\microsoft.aspnetcore.components.analyzers.3.1.10.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\3.1.10\\microsoft.aspnetcore.components.forms.3.1.10.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.aspnetcore.components.web\\3.1.10\\microsoft.aspnetcore.components.web.3.1.10.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.10\\microsoft.aspnetcore.metadata.3.1.10.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -19,11 +27,12 @@
     "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.22\\microsoft.extensions.configuration.abstractions.3.1.22.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.22\\microsoft.extensions.configuration.binder.3.1.22.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.22\\microsoft.extensions.dependencyinjection.3.1.22.nupkg.sha512",
-    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.22\\microsoft.extensions.dependencyinjection.abstractions.3.1.22.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.logging\\3.1.22\\microsoft.extensions.logging.3.1.22.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.22\\microsoft.extensions.logging.abstractions.3.1.22.nupkg.sha512",
-    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.options\\3.1.22\\microsoft.extensions.options.3.1.22.nupkg.sha512",
-    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.22\\microsoft.extensions.primitives.3.1.22.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\prabhakar\\.nuget\\packages\\microsoft.jsinterop\\3.1.10\\microsoft.jsinterop.3.1.10.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\mongodb.bson\\2.14.1\\mongodb.bson.2.14.1.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\mongodb.driver\\2.14.1\\mongodb.driver.2.14.1.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\mongodb.driver.core\\2.14.1\\mongodb.driver.core.2.14.1.nupkg.sha512",
@@ -33,7 +42,7 @@
     "C:\\Users\\prabhakar\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\prabhakar\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
-    "C:\\Users\\prabhakar\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    "C:\\Users\\prabhakar\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -75,6 +75,27 @@ using BlazorEmployee.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 10 "C:\Users\prabhakar\source\repos\BlazorEmployee\BlazorEmployee\_Imports.razor"
+using MatBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\prabhakar\source\repos\BlazorEmployee\BlazorEmployee\Pages\Empdashbord.razor"
+using DataLayer.Model;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "C:\Users\prabhakar\source\repos\BlazorEmployee\BlazorEmployee\Pages\Empdashbord.razor"
+using DataLayer.Interface;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Dashboard")]
     public partial class Empdashbord : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -83,6 +104,35 @@ using BlazorEmployee.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 72 "C:\Users\prabhakar\source\repos\BlazorEmployee\BlazorEmployee\Pages\Empdashbord.razor"
+       
+
+    List<EmployeeModel> empList = new List<EmployeeModel>();
+    EmployeeModel emp = new EmployeeModel();
+    [Parameter]
+    public string  CurrentId { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        empList = await Task.Run(() => services.GetAllEmployee());
+
+    }
+
+    void edit(string CurrentId)
+    {
+        navigate.NavigateTo("/editemployee/" + CurrentId);
+    }
+    void delete(string CurrentId)
+    {
+        navigate.NavigateTo("/deleteEmployee/" + CurrentId);
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigate { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IEmployee services { get; set; }
     }
 }
 #pragma warning restore 1591

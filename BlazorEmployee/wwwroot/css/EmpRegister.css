@@ -98,11 +98,23 @@ label {
 }
 
 .input {
-    width: 100%;
-    padding: 12px;
+    width: 55%;
+    padding: 7px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
+}
+
+.Salaryinput {
+    width: 33%;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.DateInput {
+    padding: 1px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 /* UC 3 */

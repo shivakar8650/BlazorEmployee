@@ -1,5 +1,12 @@
 ﻿@page "/EmpRegister"
 
+@using DataLayer.Model
+@using DataLayer.Interface
+@using MatBlazor; 
+
+@inject IEmployee services
+@inject NavigationManager navigate
+
 <header class="header-content header">
     <div class="logo-content">
         <img src="/assets/logo.png" alt="">
@@ -10,149 +17,151 @@
     </div>
 </header>
 <div class="form-content">
-    <form class="form" action="#" onsubmit="save();return false">
-        <!-- UC 2 -->
-        <div class="form-head"> Employee Payroll form </div>
-        <div class="row-content">
-            <label class="label text" for="name">Name</label>
-            <input class="input" type="text" id="name" name="name"
-                   placeholder="Your name.." required>
-            <error-output class="name-error" for="text"></error-output>
-        </div>
-        <!-- UC 3 -->
-        <div class="row-content">
-            <label class="label text" for="profile">Profile image</label>
-            <div class="profile-radio-content">
-                <label>
-                    <input type="radio" id="profile1" name="profile"
-                           value="/assets/Ellipse -3.png" required>
-                    <img class="profile" id='image1' src="/assets/Ellipse -3.png">
-                </label>
-                <label>
-                    <input type="radio" id="profile2" name="profile"
-                           value="/assets/Ellipse -4.png" required>
-                    <img class="profile" id='image2' src="/assets/Ellipse -4.png">
-                </label>
-                <label>
-                    <input type="radio" id="profile3" name="profile"
-                           value="/assets/Ellipse -5.png" required>
-                    <img class="profile" id='image3' src="/assets/Ellipse -5.png">
-                </label>
-                <label>
-                    <input type="radio" id="profile4" name="profile"
-                           value="/assets/Ellipse -7.png" required>
-                    <img class="profile" id='image4' src="/assets/Ellipse -7.png">
-                </label>
+    <EditForm Model="@emp" OnSubmit="@AddEmp" class="form">
+       
+            <!-- UC 2 -->
+            <div class="form-head"> Employee Payroll form </div>
+            <div class="row-content">
+                <label class="label text" for="name">Name</label>
+                <input class="input" type="text" id="name" name="name"
+                       placeholder="Your name.." @bind-value="@emp.name" required>
+                <error-output class="name-error" for="text"></error-output>
             </div>
-        </div>
-        <!-- UC 4 -->
-        <div class="row-content">
-            <label class="label text" for="gender">Gender</label>
-            <div>
-                <input type="radio" id="male" name="gender" value="male">
-                <label class="text" for="male">Male</label>
-                <input type="radio" id="female" name="gender" value="female">
-                <label class="text" for="female">Female</label>
+            <!-- UC 3 -->
+            <div class="row-content">
+                <label class="label text" for="profile">Profile image</label>
+                <div class="profile-radio-content">
+                    <label>
+                        <input type="checkbox" id="profile1" name="profile"
+                               value="/assets/Ellipse -3.png"
+                                 @onchange="@(()=>AddImg("/assets/Ellipse -3.png"))" >
+                      
+                        <img class="profile" id='image1' src="/assets/Ellipse -3.png">
+
+                    </label>
+                    <label>
+                        <input type="checkbox" id="profile2" name="profile"
+                               value="/assets/Ellipse -4.png"
+                                @onchange="@(()=>AddImg("/assets/Ellipse -4.png"))">
+                        <img class="profile" id='image2' src="/assets/Ellipse -4.png">
+                    </label>
+                    <label>
+                        <input type="checkbox" id="profile3" name="profile"
+                               value="/assets/Ellipse -5.png"
+                                @onchange="@(()=>AddImg("/assets/Ellipse -5.png"))">
+                        <img class="profile" id='image3' src="/assets/Ellipse -5.png">
+                    </label>
+                    <label>
+                        <input type="checkbox" id="profile4" name="profile"
+                               value="/assets/Ellipse -7.png" 
+                                @onchange="@(()=>AddImg("/assets/Ellipse -7.png"))">
+                        <img class="profile" id='image4' src="/assets/Ellipse -7.png">
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="row-content">
-            <label class="label text" for="department">Department</label>
-            <div>
-                <input class="checkbox" type="checkbox" id="hr" name="department" value="HR">
-                <label class="text" for="hr">HR</label>
-                <input class="checkbox" type="checkbox" id="sales" name="department" value="Sales">
-                <label class="text" for="sales">Sales</label>
-                <input class="checkbox" type="checkbox" id="finance" name="department" value="Finance">
-                <label class="text" for="finance">Finance</label>
-                <input class="checkbox" type="checkbox" id="engineer" name="department" value="Engineer">
-                <label class="text" for="engineer">Engineer</label>
-                <input class="checkbox" type="checkbox" id="others" name="others" value="Others">
-                <label class="text" for="others">Others</label>
+            <!-- UC 4 -->
+            <div class="row-content">
+                <label class="label text" for="gender">Gender</label>
+                <div>
+                    <select asp-for="Gender" class="form-control" @bind="@emp.gender">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="row-content">
-            <label class="label text" for="salary">Choose your salary: </label>
-            <input class="input" type="range" name="salary" id="salary" min="300000"
-                   max="500000" step="100" value="400000" onChange="getSal()">
-            <output class="salary-output text" for="salary">400000</output>
-            <error-output class="name-error" for="text"></error-output>
-        </div>
-        <!-- UC 5 -->
-        <div class="row-content">
-            <label class="label text" for="startDate">Start Date</label>
-            <div>
-                <select id="day" name="Day">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                </select>
-                <select id="month" name="Month">
-                    <option value="Jan">January</option>
-                    <option value="Feb">Febuary</option>
-                    <option value="March">March</option>
-                    <option value="April">April</option>
-                    <option value="May">May</option>
-                    <option value="June">June</option>
-                    <option value="July">July</option>
-                    <option value="Aug">August</option>
-                    <option value="Sept">September</option>
-                    <option value="Oct">October</option>
-                    <option value="Nov">November</option>
-                    <option value="Dec">December</option>
-                </select>
-                <select id="year" name="Year">
-                    <option value="2020">2020</option>
-                    <option value="2019">2019</option>
-                    <option value="2018">2018</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                </select>
+            <div class="row-content">
+                <label class="label text" for="department">Department</label>
+                <div>
+                    <select asp-for="Department" class="form-control" @bind="@emp.Department">
+                        <option value="">-- Select Department --</option>
+                        <option value="HR">HR</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Engineer">Engineer</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <!-- UC 6 -->
-        <div class="row-content">
-            <label class="label text" for="notes">Notes</label>
-            <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
-        </div>
-        <div class="button-content">
-            <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
-            <div class="submit-reset">
-                <button type="submit" class="button submitButton" id="submitButton">Submit</button>
-                <button type="reset" class="resetButton button">Reset</button>
+            <div class="row-content">
+                <label class="label text" for="salary">Salary: </label>
+                <input class="Salaryinput" @bind="@emp.Salary" type="number" name="salary" id="salary" min="300000"
+                     defaultvalue="250000" max="500000" step="1000" >
             </div>
-        </div>
-    </form>
+            <!-- UC 5 -->
+            <div class="row-content">
+                <label class="label text" for="startDate">Start Date</label>
+                <div >
+                    <input class="DateInput" type="date" @bind="@emp.SatrtDate" placeholder="">
+                </div>
+            </div>
+            <!-- UC 6 -->
+            <div class="row-content">
+                <label class="label text" for="notes">Notes</label>
+                <textarea id="notes" @bind="@emp.Note" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
+            </div>
+            <div class="button-content">
+                <button class="resetButton button btn btn-info"
+                        @onclick="@(()=>Home())">
+                    Cancel
+                </button>
+
+                <div class="submit-reset">
+                    <button type="submit" class="button submitButton btn btn-outline-success"
+                            @* @onclick="@(()=>snackbarPrimary.show())"*@ id="submitButton">Submit</button>
+                    <button type="reset" class="resetButton button btn btn-outline-secondary"
+                            @onclick="@(()=>Reset())">
+                        Reset
+                    </button>
+                </div>
+
+                <MatSnackbar @bind-IsOpen="@snackBarIsOpen">
+                    <MatSnackbarContent>Employee Register Succesfully..</MatSnackbarContent>
+                </MatSnackbar>
+                <MatSnackbar @bind-IsOpen="@snackBar2IsOpen">
+                    <MatSnackbarContent>Cancel and Return to Dashbord..</MatSnackbarContent>
+                </MatSnackbar>
+                <MatSnackbar @bind-IsOpen="@snackBar3IsOpen">
+                    <MatSnackbarContent>Reset Employee Details..</MatSnackbarContent>
+                </MatSnackbar>
+            </div>
+      
+    </EditForm>
 </div>
 
 
 @code {
 
+    bool snackBarIsOpen = false; //submit
+    bool snackBar2IsOpen = false; //cancel
+    bool snackBar3IsOpen = false;  //reset
+
+ 
+
+    EmployeeModel emp = new EmployeeModel();
+    protected void AddEmp()
+    {
+        services.Create(emp);
+        snackBarIsOpen = true;
+        this.StateHasChanged();
+        //   navigate.NavigateTo("/Dashboard");
+    }
+    protected void AddImg(string img)
+    {
+        emp.ProfileImage = img;
+
+    }
+
+    protected void Reset()
+    {
+        snackBar3IsOpen = true;
+        this.StateHasChanged();
+       // navigate.NavigateTo("/EmpRegister");
+    }
+    protected void Home()
+    {
+        snackBar2IsOpen = true;
+        this.StateHasChanged();
+        //navigate.NavigateTo("/Dashboard");
+    }
 }

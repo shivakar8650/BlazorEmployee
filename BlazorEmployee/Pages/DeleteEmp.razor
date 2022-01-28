@@ -1,0 +1,84 @@
+﻿@page "/deleteEmployee/{EmpID}"
+
+@using DataLayer.Model
+@using DataLayer.Interface
+
+@inject IEmployee services
+@inject NavigationManager navigate
+
+<header class="header-content header">
+    <div class="logo-content">
+        <img src="/assets/logo.png" alt="">
+        <div>
+            <span class="emp-text">EMPLOYEE</span><br>
+            <span class="emp-text emp-payroll">PAYROLL</span>
+        </div>
+    </div>
+</header>
+
+
+<div class="">
+    <!-- UC 2 -->
+    <div class="form-head delete-head">Confirm Deletion! </div>
+
+    <div class="table-main">
+
+        <table class='table'>
+            <tr>
+                <td>Employee-ID</td>
+                <td>@emp.id</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@emp.name</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>@emp.gender</td>
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>@emp.Department</td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td>@emp.Salary</td>
+            </tr>
+            <tr>
+                <td>Start-Date</td>
+                <td>@emp.SatrtDate</td>
+            </tr>
+            <tr>
+                <td>Note</td>
+                <td>@emp.Note</td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="delete-bottom">
+        <button class="btn btn-danger" @onclick="@(()=>deleteEmp())"> YES</button>
+        <button class="btn btn-warning" @onclick="@(()=>home())"> NO </button>
+    </div>
+
+</div>
+
+    @code {
+
+        EmployeeModel emp = new EmployeeModel();
+        [Parameter]
+        public string EmpID { get; set; }
+        protected override async Task OnInitializedAsync()
+        {
+            emp = await Task.Run(() => services.GetemployeeDetails(EmpID));
+
+        }
+        void deleteEmp()
+        {
+            services.Delete(EmpID);
+            navigate.NavigateTo("/Dashboard");
+        }
+        void home()
+        {
+            navigate.NavigateTo("/Dashboard");
+        }
+    }

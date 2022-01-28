@@ -1,1 +1,4 @@
-﻿<StaticWebAssets Version="1.0" />
+﻿<StaticWebAssets Version="1.0">
+  <ContentRoot BasePath="_content/Blazorise.Snackbar" Path="C:\Users\prabhakar\.nuget\packages\blazorise.snackbar\0.9.5.4\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/MatBlazor" Path="C:\Users\prabhakar\.nuget\packages\matblazor\2.8.0\build\..\staticwebassets\" />
+</StaticWebAssets>

@@ -1,5 +1,10 @@
 ﻿@page "/Dashboard"
 
+@using DataLayer.Model
+@using DataLayer.Interface
+
+@inject IEmployee services
+@inject NavigationManager navigate
 <header class="flex-row-center header">
     <div class="logo">
         <img src="Assets/logo.png" alt="">
@@ -12,7 +17,7 @@
 <div class="flex-column content">
     <div class="emp-detail">
         <div class="detail-text">
-            Employee Details <div class="count">10</div>
+            Employee Details 
         </div>
         <a href="/EmpRegister" class="add-button flex-row-center">
             <img src="/Asets/icons/add-24px.svg" alt="">
@@ -20,21 +25,69 @@
         </a>
     </div>
     <div class="table-main">
-        <table id="display" class="table">
-            <tbody>
-                <tr>
-                    <th>Name</th>
-                    <th>Gender</th>
-                    <th>Department</th>
-                    <th>Salary</th>
-                    <th>start Date</th>
-                    <th>Actions</th>
-                </tr>
-            </tbody>
-        </table>
+        @if (empList == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            <table class='table'>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Start Date</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var emp in empList)
+                    {
+                    <tr>
+                        <td>@emp.id</td>
+                        <td>@emp.name</td>
+                        <td>@emp.gender</td>
+                        <td>@emp.Department</td>
+                        <td>@emp.Salary</td>
+                        <td>@emp.SatrtDate</td>
+                        <td>@emp.Note</td>
+                        <td class="Edit-Delete">
+                            <a class="btn btn-info" href="editemployee/@emp.id">Edit</a> 
+                            <a Class="btn btn-danger" href="deleteEmployee/@emp.id">Delete</a>
+                        </td>                                             
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
     </div>
 </div>
 
+
+
+
 @code {
+
+    List<EmployeeModel> empList = new List<EmployeeModel>();
+    EmployeeModel emp = new EmployeeModel();
+    [Parameter]
+    public string  CurrentId { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        empList = await Task.Run(() => services.GetAllEmployee());
+
+    }
+
+    void edit(string CurrentId)
+    {
+        navigate.NavigateTo("/editemployee/" + CurrentId);
+    }
+    void delete(string CurrentId)
+    {
+        navigate.NavigateTo("/deleteEmployee/" + CurrentId);
+    }
 
 }

@@ -43,6 +43,12 @@
     opacity: 1;
 }
 
+.delete-head {
+    text-align: center;
+    padding: 0% 11%;
+    display: flex;
+}
+
 .count {
     background-color: #82a70c;
     color: #ffffff;
@@ -146,6 +152,20 @@ td img {
     display: inline-block;
     font-weight: 300;
     margin-bottom: 8px;
+}
+.delete-bottom {
+    display: flex;
+    margin-bottom: 48px;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 274px;
+    padding-left: 149px;
+}
+
+.Edit-Delete {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
 }
 /* tr:nth-child(even) {
     background-color: #dddddd;
