@@ -19,8 +19,8 @@ namespace DataLayer.Model
         public string gender { get; set; }
         [Required(ErrorMessage = "Deaprtment")]
         public string Department  { get; set; }
-        public string Salary { get; set; }
-        public string SatrtDate { get; set; }
+        public double Salary { get; set; }
+        public DateTime SatrtDate { get; set; }
         public string Note { get; set; }
 
     }

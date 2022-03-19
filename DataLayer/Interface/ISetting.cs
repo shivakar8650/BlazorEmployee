@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DataLayer.Model
 {
-     public class Setting :ISetting
+    public interface ISetting
     {
         public string Connectionstring { get; set; }
         public string DatabaseName { get; set; }
